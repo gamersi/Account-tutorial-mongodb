@@ -1,6 +1,6 @@
 /** 
  * @author gamer si code
- * @async
+ * @async 
  * @copyright gamer si
  * 
  * Copyright © gamer si aka Simon, 2021
@@ -18,7 +18,7 @@ const app = express()
 const mongoose = require('mongoose') // MongoDB Bridge
 const User = require('./model/user') // das User model in ./model
 const bcrypt = require('bcryptjs') // Passwortverschlüsselung
-const jwt = require('jsonwebtoken') // jason web tokens = die tokens die im Browser vom User gespeichert werden
+const jwt = require('jsonwebtoken') // json web tokens = die tokens die im Browser vom User gespeichert werden
 
 const JWT_SECRET = process.env.JWT_SECRET // Liest das JWT Secret aus der .env datei aus.
 
@@ -144,10 +144,10 @@ app.post('/api/register', async (req, res) => { // endpunkt, um sich zu registri
             password
         })
     } catch (error){
-        if(error.code === 11000) {
-            return res.json({ status: 'error', message: 'Die Email wird bereits verwendet!' })
-        }
-        throw error;
+      if(error.code === 11000) {
+          return res.json({ status: 'error', message: 'Die Email wird bereits verwendet!' })
+      }
+      throw error;
     }
     res.json({ status: 'ok' })
 })
